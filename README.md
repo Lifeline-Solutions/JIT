@@ -1,7 +1,7 @@
 
-# Lifeline Medical
+# Just in Time (JIT) Tracking and Tracing
 
-Rails login app with roles agent, seller and admin.
+Login Application for Tracking and Tracing
 
 # ERD
 
@@ -18,7 +18,7 @@ Ruby 3.1.2 on Rails 7.0.4 <br>
 PostgreSQL
 
 ## Prerequisites
-Vscode or anyother Setup
+Vscode or Rubymine
 
 ## Install
 Ruby
