@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   roles = %w[admin donor receiver beneficiary]
-  roles.each do  |role_name|
+  roles.each do |role_name|
     define_method "#{role_name}?" do
-      self.role == role_name
+      role == role_name
     end
   end
 end
