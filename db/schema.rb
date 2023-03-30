@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_11_123418) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_30_110222) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "donations", force: :cascade do |t|
+    t.string "type_of_donation"
+    t.string "drop_off_point"
+    t.string "quantity"
+    t.string "nature"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "state_counter", default: 0
+    t.index ["user_id"], name: "index_donations_on_user_id"
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.bigint "donation_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["donation_id"], name: "index_states_on_donation_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,4 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_11_123418) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "donations", "users"
+  add_foreign_key "states", "donations"
 end
