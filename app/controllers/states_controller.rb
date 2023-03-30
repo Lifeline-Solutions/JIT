@@ -1,6 +1,6 @@
 class StatesController < ApplicationController
   before_action :set_donation
-  before_action :set_state, only: [:show, :edit, :update, :destroy]
+  before_action :set_state, only: %i[show edit update destroy]
 
   # GET donations/1/states
   def index
@@ -8,8 +8,7 @@ class StatesController < ApplicationController
   end
 
   # GET donations/1/states/1
-  def show
-  end
+  def show; end
 
   # GET donations/1/states/new
   def new
@@ -17,15 +16,14 @@ class StatesController < ApplicationController
   end
 
   # GET donations/1/states/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST donations/1/states
   def create
     @state = @donation.states.build(state_params)
 
     if @state.save
-      redirect_to([@donation ], notice: 'State was successfully created.')
+      redirect_to([@donation], notice: 'State was successfully created.')
     else
       render action: 'new'
     end
@@ -48,17 +46,18 @@ class StatesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_donation
-      @donation = Donation.find(params[:donation_id])
-    end
 
-    def set_state
-      @state = @donation.states.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_donation
+    @donation = Donation.find(params[:donation_id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def state_params
-      params.require(:state).permit(:name)
-    end
+  def set_state
+    @state = @donation.states.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def state_params
+    params.require(:state).permit(:name)
+  end
 end

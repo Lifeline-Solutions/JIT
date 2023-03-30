@@ -1,5 +1,5 @@
 class DonationsController < ApplicationController
-  before_action :set_donation, only: %i[ show edit update destroy ]
+  before_action :set_donation, only: %i[show edit update destroy]
 
   # GET /donations or /donations.json
   def index
@@ -7,8 +7,7 @@ class DonationsController < ApplicationController
   end
 
   # GET /donations/1 or /donations/1.json
-  def show
-  end
+  def show; end
 
   # GET /donations/new
   def new
@@ -16,8 +15,7 @@ class DonationsController < ApplicationController
   end
 
   # GET /donations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /donations or /donations.json
   def create
@@ -26,7 +24,7 @@ class DonationsController < ApplicationController
 
     respond_to do |format|
       if @donation.save
-        format.html { redirect_to donation_url(@donation), notice: "Donation was successfully created." }
+        format.html { redirect_to donation_url(@donation), notice: 'Donation was successfully created.' }
         format.json { render :show, status: :created, location: @donation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +37,7 @@ class DonationsController < ApplicationController
   def update
     respond_to do |format|
       if @donation.update(donation_params)
-        format.html { redirect_to donation_url(@donation), notice: "Donation was successfully updated." }
+        format.html { redirect_to donation_url(@donation), notice: 'Donation was successfully updated.' }
         format.json { render :show, status: :ok, location: @donation }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +51,20 @@ class DonationsController < ApplicationController
     @donation.destroy
 
     respond_to do |format|
-      format.html { redirect_to donations_url, notice: "Donation was successfully destroyed." }
+      format.html { redirect_to donations_url, notice: 'Donation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_donation
-      @donation = Donation.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def donation_params
-      params.require(:donation).permit(:type_of_donation, :drop_off_point, :quantity, :nature)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_donation
+    @donation = Donation.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def donation_params
+    params.require(:donation).permit(:type_of_donation, :drop_off_point, :quantity, :nature)
+  end
 end
