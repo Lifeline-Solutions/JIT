@@ -68,6 +68,8 @@ end
 
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 
+gem 'cancancan'
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
