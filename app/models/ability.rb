@@ -5,7 +5,7 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.donor?
-      can  %w[read create update], user_id: user.id
+      can %w[read create update], user_id: user.id
     elsif user.receiver?
       can %w[read update], :all
     elsif user.beneficiary?
