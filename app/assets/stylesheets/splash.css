@@ -1,0 +1,63 @@
+
+.splash-wrapper{
+    height: 100vh;
+    background-image: url("splash-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.splash-container{
+    Padding: 1rem;
+    position: relative;
+}
+
+.splash-title{
+    color: #fff;
+}
+
+.splash-title h1{
+    font-weight: bold;
+}
+.care{
+    color: red;
+}
+
+.homepage-buttons{
+    left: 0;
+        right: 0;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        position: absolute;
+        width: 60%;
+        margin-top:7rem;
+
+}
+
+.login-splash-btn{
+    padding: 0.5rem 3rem !important;
+    border-radius:30px !important;
+    width:80%;
+    border: transparent !important;
+
+}
+
+.homepage-buttons .password{
+    font-size: 1rem;
+    color: #fff;
+    font-weight: lighter;
+}
+
+.login-splash{
+    background-color: red !important;
+    color: #fff !important;
+    text-decoration: none !important;
+
+}
+
+.signup-splash{
+    background-color: #fff !important;
+    color: red !important;
+    text-decoration: none !important;
+}
